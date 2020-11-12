@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>progress bar</title>
   <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    
     .area {
       margin: 0 auto;
-      width: 250px;
-      height: 100px;
       background-color: rgb(252, 227, 239);
     }
 
@@ -19,14 +22,16 @@
     }
 
     .view {
+      margin: 0 auto;
       text-align: center;
+      width: 300px;
       height: 30px;
       vertical-align: middle;
     }
 
     progress {
       height: 5px;
-      width: 200px;
+      width: 300px;
       background-color: rgb(243, 87, 87);
       line-height: 10px;
     }
@@ -34,9 +39,42 @@
     .btn {
       padding: 5px 30px;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-content: center;
     }
+
+    .btn > div {
+      margin: 5px 5px;
+      width: 50px;
+      height: 30px;
+      background-color: azure;
+      text-align: center;
+      line-height: 30px;
+      border-radius: 8px;
+      box-shadow: 3px 3px #ccc;
+      user-select: none;
+
+    }
+
+    .btn > div:active {
+      margin-top: 8px;
+      margin-bottom: -8px;
+      box-shadow: 0 0;
+    }
+
+    .btn > div.disabled {
+      pointer-events: none;
+    }
+
+    @media (max-width: 400px) {
+      .btn {
+        flex-direction: column;
+      }
+
+      .btn > div {
+        width: 300px;
+      }
+    } 
   </style>
 </head>
 <body>
@@ -46,9 +84,9 @@
       <progress id="progress"  max="100">0%</progress>
     </div>
     <div class="btn">
-      <input type="button" value="start">
-      <input type="button" value="stop">
-      <input type="button" value="reset">
+      <div id="start">start</div>
+      <div id="stop">stop</div>
+      <div id="reset">reset</div>
     </div>
   </div>
 
