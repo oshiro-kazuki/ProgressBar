@@ -2,31 +2,32 @@
 
 {
   const progress = document.querySelector('progress');
-  const start = document.querySelector('input[value="start"]');
-  const stop = document.querySelector('input[value="stop"]');
-  const reset = document.querySelector('input[value="reset"]');
+  const start = document.getElementById('start');
+  const stop = document.getElementById('stop');
+  const reset = document.getElementById('reset');
   const p = document.querySelector('p');
   
 
   let val = 0;
   let intervalId;
-  start.disabled = false;
-  stop.disabled = true;
-  reset.disabled = true;
+  stop.classList.add('disabled');
+  reset.classList.add('disabled');
 
   start.addEventListener('click', () => {
     // console.log('click');
     intervalId = setInterval(updateProgress, 50);
-    start.disabled = true;
-    stop.disabled = false;
-    reset.disabled = false;
+
+    start.classList.add('disabled');
+    stop.classList.remove('disabled');
   });
 
   stop.addEventListener('click', () => {
     clearInterval(intervalId);
-    start.disabled = false;
-    stop.disabled = true;
-    reset.disabled = false;
+
+    start.classList.remove('disabled');
+    stop.classList.add('disabled');
+    reset.classList.remove('disabled');
+
     // progress.setAttribute('value', val);
     // p.textContent = `${val}%`;
   });
@@ -34,9 +35,11 @@
   reset.addEventListener('click', () => {
     clearInterval(intervalId);
     val = 0;
-    start.disabled = false;
-    stop.disabled = true;
-    reset.disabled = true;
+
+    start.classList.remove('disabled');
+    stop.classList.add('disabled');
+    reset.classList.add('disabled');
+
     progress.setAttribute('value', 0);
     p.textContent = `${val}%`;
   });
@@ -53,8 +56,4 @@
     }
   }
 
-  function resetProgress() {
-    val = 0;
-    start.disabled = false;
-  }
 }
