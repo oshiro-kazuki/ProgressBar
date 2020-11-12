@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>progress bar</title>
+  <style>
+    .area {
+      margin: 0 auto;
+      width: 250px;
+      height: 100px;
+      background-color: rgb(252, 227, 239);
+    }
+
+    p {
+      margin: 0;
+      padding-top: 5px;
+      text-align: center;
+    }
+
+    .view {
+      text-align: center;
+      height: 30px;
+      vertical-align: middle;
+    }
+
+    progress {
+      height: 5px;
+      width: 200px;
+      background-color: rgb(243, 87, 87);
+      line-height: 10px;
+    }
+
+    .btn {
+      padding: 5px 30px;
+      display: flex;
+      justify-content: space-around;
+      align-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="area">
+    <p>0%</p>
+    <div class="view">
+      <progress id="progress"  max="100">0%</progress>
+    </div>
+    <div class="btn">
+      <input type="button" value="start">
+      <input type="button" value="stop">
+      <input type="button" value="reset">
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
